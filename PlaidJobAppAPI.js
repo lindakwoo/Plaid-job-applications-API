@@ -4,6 +4,7 @@ let standardizePhoneNumber = (phoneEntry)=>{
     let final = "1-";
     //create array of only the digits from the input text
     for(let i = 0;i<phoneEntry.length;i++){
+        //simple regular expression that filters out anything but digits.
         if(/\d/.test(phoneEntry[i])){
             digits.push(phoneEntry[i]);
         }
@@ -18,7 +19,7 @@ let standardizePhoneNumber = (phoneEntry)=>{
     }
     //otherwise if 11 characters and first character is not a "1", invalid.  
     // Or if 10 characters and first character is "1", invalid
-    else if((digits.length===11&& digits[0]!=="1")||(digits.length===10&&digits[0]=="1")){
+    else if((digits.length===11)||(digits.length===10&&digits[0]=="1")){
         return "invalid";
     }
     //cycle through digits array to format final string
